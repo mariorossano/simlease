@@ -1,0 +1,33 @@
+<svg width="1200" height="280" viewBox="0 0 1200 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#134e4a"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="600" y1="0" x2="600" y2="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="280" rx="16" fill="url(#bg)"/>
+  <rect width="1200" height="280" rx="16" fill="url(#glow)"/>
+  <rect x="0.5" y="0.5" width="1199" height="279" rx="15.5" stroke="#2dd4bf" stroke-opacity="0.25"/>
+
+  <g transform="translate(88, 70)">
+    <rect x="0" y="0" width="84" height="140" rx="18" fill="#0b1120" stroke="#2dd4bf" stroke-width="2.5"/>
+    <rect x="26" y="10" width="32" height="7" rx="3.5" fill="#1e293b"/>
+    <rect x="10" y="28" width="64" height="92" rx="6" fill="#134e4a" opacity="0.55"/>
+    <g transform="translate(24, 52)">
+      <rect x="0" y="16" width="36" height="28" rx="6" fill="#2dd4bf"/>
+      <path d="M8 16 v-6 a10 10 0 0 1 20 0 v6" stroke="#2dd4bf" stroke-width="6" fill="none"/>
+      <circle cx="18" cy="28" r="4.5" fill="#0b1120"/>
+    </g>
+  </g>
+
+  <g font-family="-apple-system, 'SF Pro Display', 'Segoe UI', Helvetica, Arial, sans-serif">
+    <text x="220" y="128" font-size="64" font-weight="700" fill="#f1f5f9" letter-spacing="-1">SimLease</text>
+    <text x="222" y="172" font-size="26" fill="#7dd3c8">Stop your AI agents from fighting over iOS simulators.</text>
+    <text x="222" y="212" font-size="18" fill="#64748b">leases · task-name window titles · TTLs · menubar board</text>
+  </g>
+
+</svg>

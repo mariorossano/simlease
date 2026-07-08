@@ -1,6 +1,13 @@
-# SimLease
+<p align="center">
+  <img src="assets/banner.svg" alt="SimLease — stop your AI agents from fighting over iOS simulators" width="100%">
+</p>
 
-**Stop your AI agents from fighting over iOS simulators.**
+<p align="center">
+  <a href="https://github.com/alexissan/simlease/actions/workflows/ci.yml"><img src="https://github.com/alexissan/simlease/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <img src="https://img.shields.io/badge/Swift-5.9+-F05138?logo=swift&logoColor=white" alt="Swift 5.9+">
+  <img src="https://img.shields.io/badge/macOS-14+-000000?logo=apple&logoColor=white" alt="macOS 14+">
+  <img src="https://img.shields.io/badge/license-MIT-2dd4bf" alt="MIT license">
+</p>
 
 When you run several AI coding agents in parallel — Claude Code sessions, Codex, multiple worktrees — they collide: one agent reinstalls over the simulator another is testing, and you end up staring at five identical iPhone windows with no idea which task each belongs to.
 
@@ -10,7 +17,9 @@ SimLease fixes both:
 - 🏷️ **Names** — the claimed simulator is renamed, so the window title literally reads `🔒 checkout-redesign · iPhone 17 Pro`. You always know which window is which task.
 - 📋 **A menubar board** — SimLease.app shows every lease (task, device, agent, time left). Click a row to bring that simulator's window to the front.
 
-![Simulator windows named after their tasks](assets/hero.png)
+<p align="center">
+  <img src="assets/hero.png" alt="Two simulator windows named after their tasks" width="85%">
+</p>
 
 ## Install
 
@@ -48,7 +57,15 @@ xcodebuild -destination "id=$SIMULATOR_ID" ...
 
 ## Using it with AI agents
 
-Add this to your `CLAUDE.md` (or any agent's instructions):
+**Claude Code:** this repo ships a ready-made skill. Copy it and every session picks it up automatically:
+
+```bash
+cp -r skills/simlease ~/.claude/skills/          # all projects
+# or per-project:
+cp -r skills/simlease your-project/.claude/skills/
+```
+
+**Any other agent** (Codex, Cursor, custom): add this to its instructions:
 
 ```markdown
 ## Simulators
@@ -61,6 +78,18 @@ Add this to your `CLAUDE.md` (or any agent's instructions):
 
 Each agent (or worktree, or session) claims from its own working directory, and the lease is keyed to that directory — parallel agents can't take each other's devices.
 
+## The menubar board
+
+SimLease.app is a tiny menubar-only app that watches the lease registry:
+
+<p align="center">
+  <img src="assets/menubar.svg" alt="SimLease menubar board" width="80%">
+</p>
+
+- 🟢 booted / ⚪️ shut down, task label, device, agent, expired flag
+- Click a row → **Focus window**, **Release lease**, or **Copy UDID**
+- **Run GC** to clean up leftovers from crashed agents
+
 ## CLI reference
 
 | Command | Behavior |
@@ -71,16 +100,6 @@ Each agent (or worktree, or session) claims from its own working directory, and 
 | `simlease status` | Show all leases: task, device, state, agent, time left. `--json` for machines. |
 | `simlease gc` | Reap expired leases and leases whose working directory is gone. |
 | `simlease focus <label\|udid>` | Bring that simulator's window to the front (omit the argument for this directory's sim). |
-
-## The menubar app
-
-SimLease.app is a tiny menubar-only app that watches the lease registry:
-
-![SimLease menubar board](assets/menubar.png)
-
-- 🟢 booted / ⚪️ shut down, task label, device, agent, expired flag
-- Click a row → **Focus window**, **Release lease**, or **Copy UDID**
-- **Run GC** to clean up leftovers from crashed agents
 
 ## How it works
 

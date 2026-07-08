@@ -1,0 +1,43 @@
+<svg width="920" height="330" viewBox="0 0 920 330" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="330" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1c1c1e"/>
+      <stop offset="1" stop-color="#161618"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="240" y="0" width="440" height="30" rx="8" fill="#0f0f10"/>
+  <g font-family="-apple-system, 'SF Pro Text', 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#e5e5e7">
+    <text x="560" y="20">📱</text>
+    <text x="596" y="20" fill="#8e8e93">Wed 8 Jul  12:52</text>
+  </g>
+
+  <g>
+    <rect x="240" y="36" width="440" height="282" rx="12" fill="url(#panel)" stroke="#3a3a3c"/>
+    <g font-family="-apple-system, 'SF Pro Text', 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15">
+      <rect x="248" y="48" width="424" height="40" rx="7" fill="#0a84ff" opacity="0.9"/>
+      <circle cx="268" cy="68" r="5.5" fill="#30d158"/>
+      <text x="284" y="73" fill="#ffffff" font-weight="600">checkout-redesign</text>
+      <text x="446" y="73" fill="#d1e9ff">iPhone 17 · claude-code · 1h 59m</text>
+
+      <circle cx="268" cy="112" r="5.5" fill="#30d158"/>
+      <text x="284" y="117" fill="#f2f2f7" font-weight="600">fix-onboarding-crash</text>
+      <text x="464" y="117" fill="#8e8e93">iPhone Air · codex · 1h 42m</text>
+
+      <circle cx="268" cy="156" r="5.5" fill="#48484a"/>
+      <text x="284" y="161" fill="#f2f2f7" font-weight="600">payments-spike</text>
+      <text x="418" y="161" fill="#ff9f0a">iPhone 16 Pro · claude-code · expired</text>
+
+      <line x1="252" y1="182" x2="668" y2="182" stroke="#3a3a3c"/>
+      <text x="284" y="210" fill="#f2f2f7">Run GC</text>
+      <text x="284" y="242" fill="#f2f2f7">Refresh</text>
+      <line x1="252" y1="260" x2="668" y2="260" stroke="#3a3a3c"/>
+      <text x="284" y="290" fill="#f2f2f7">Quit SimLease</text>
+    </g>
+  </g>
+
+  <g font-family="-apple-system, 'SF Pro Text', 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#8e8e93">
+    <text x="700" y="72">← click a row to focus</text>
+    <text x="700" y="94">that simulator's window</text>
+  </g>
+</svg>
