@@ -132,6 +132,12 @@ final class AllocatorTests: XCTestCase {
         XCTAssertTrue(runner.calls.contains(["xcrun", "simctl", "rename", "AAA", "iPhone 17 Pro"]))
     }
 
+    func testGcWithNothingToReapDoesNotWriteRegistry() throws {
+        XCTAssertEqual(try makeAllocator().gc(), [])
+        XCTAssertFalse(FileManager.default.fileExists(
+            atPath: dir.appendingPathComponent("registry.json").path))
+    }
+
     func testStatusListsLeasesWithDeviceState() throws {
         stubDevices([("AAA", "iPhone 17 Pro", "Booted"), ("BBB", "iPhone 16 Pro", "Shutdown")])
         let alloc = makeAllocator()

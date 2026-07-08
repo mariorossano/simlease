@@ -209,7 +209,7 @@ public struct Allocator {
         try withLock {
             var registry = try RegistryStore.load(at: paths.registry)
             let freed = reap(&registry, present: try simctl.devices(availableOnly: false))
-            try RegistryStore.save(registry, to: paths.registry)
+            if !freed.isEmpty { try RegistryStore.save(registry, to: paths.registry) }
             return freed
         }
     }

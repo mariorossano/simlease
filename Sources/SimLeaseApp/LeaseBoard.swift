@@ -12,6 +12,7 @@ struct BoardRow: Identifiable {
 final class LeaseBoard: ObservableObject {
     @Published var rows: [BoardRow] = []
     private var timer: Timer?
+    private var gcTimer: Timer?
     private var watcher: DispatchSourceFileSystemObject?
 
     init() {
@@ -19,6 +20,16 @@ final class LeaseBoard: ObservableObject {
         watchRegistry()
         timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] _ in
             Task { @MainActor in self?.refresh() }
+        }
+        autoGC()
+        gcTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { [weak self] _ in
+            Task { @MainActor in self?.autoGC() }
+        }
+    }
+
+    func autoGC() {
+        Task.detached(priority: .utility) {
+            _ = try? Allocator().gc()
         }
     }
 

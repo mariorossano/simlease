@@ -88,7 +88,8 @@ SimLease.app is a tiny menubar-only app that watches the lease registry:
 
 - 🟢 booted / ⚪️ shut down, task label, device, agent, expired flag
 - Click a row → **Focus window**, **Release lease**, or **Copy UDID**
-- **Run GC** to clean up leftovers from crashed agents
+- Reaps expired leases automatically every minute while running — device names are restored without anyone touching the CLI
+- **Run GC** to clean up immediately instead of waiting for the next sweep
 
 ## CLI reference
 
@@ -114,7 +115,7 @@ SimLease.app is a tiny menubar-only app that watches the lease registry:
 It renames a device while leased and restores the exact original name on release (or GC). It never deletes a simulator it didn't create itself.
 
 **What if an agent crashes without releasing?**
-The lease expires after its TTL. The next `claim` or `gc` restores the device name and frees it.
+The lease expires after its TTL. If SimLease.app is running it reaps the lease within a minute; otherwise the next `claim` or `gc` restores the device name and frees it.
 
 **Does the other agent have to use SimLease too?**
 The lock is cooperative — agents that claim through SimLease never collide. Agents that ignore it can still grab any device, but the 🔒 in the device name makes "this one is taken" visible to both humans and models.
