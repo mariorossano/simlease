@@ -28,6 +28,8 @@ This machine uses [SimLease](https://github.com/alexissan/simlease) to coordinat
    ```
 
    This restores the simulator's original name and frees it for other agents.
+   After release, treat every previously returned UDID as invalid. Run
+   `simlease claim` again before any later simulator work.
 
 5. **Never touch 🔒 simulators you didn't claim.** A device whose name starts with 🔒 is leased by another agent or session. If no device is free, `simlease claim` creates a fresh one — you never need to take someone else's.
 
