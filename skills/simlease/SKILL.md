@@ -17,7 +17,7 @@ This machine uses [SimLease](https://github.com/alexissan/simlease) to coordinat
 
    Use the ticket ID or branch name as the label (omit `--label` to default to the git branch). The UDID is the only stdout output, so command substitution is safe.
 
-2. **The claim is sticky.** Re-running `simlease claim` from the same directory returns the same device — call it before every build instead of caching the UDID across sessions. Each claim renews the 2-hour lease.
+2. **The claim is sticky.** Re-running `simlease claim` from the same directory returns the same device — call it before every build instead of caching the UDID across sessions. Each claim renews the 2-hour lease. Claim from the checkout whose app you are about to use; a different checkout must claim separately.
 
 3. **Renew on long sessions.** If a task runs long between builds: `simlease renew`.
 
@@ -28,8 +28,6 @@ This machine uses [SimLease](https://github.com/alexissan/simlease) to coordinat
    ```
 
    This restores the simulator's original name and frees it for other agents.
-   After release, treat every previously returned UDID as invalid. Run
-   `simlease claim` again before any later simulator work.
 
 5. **Never touch 🔒 simulators you didn't claim.** A device whose name starts with 🔒 is leased by another agent or session. If no device is free, `simlease claim` creates a fresh one — you never need to take someone else's.
 
